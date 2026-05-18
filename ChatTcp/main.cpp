@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string>
 #include <vector>
@@ -206,8 +207,6 @@ int main() {
 #ifdef _WIN32
     SetConsoleCP(CP_UTF8);
     SetConsoleOutputCP(CP_UTF8);
-    _setmode(_fileno(stdout), _O_U8TEXT);
-    _setmode(_fileno(stdin), _O_U8TEXT);
     WSADATA wsa;
     WSAStartup(MAKEWORD(2, 2), &wsa);
 #endif

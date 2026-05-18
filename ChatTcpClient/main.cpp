@@ -201,6 +201,8 @@ void handle_list(socket_t sock) {
 
 int main() {
 #ifdef _WIN32
+    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
     WSADATA wsa;
     if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0) {
         cerr << "Не вдалося ініціалізувати Winsock\n";

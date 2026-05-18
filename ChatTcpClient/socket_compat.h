@@ -26,13 +26,3 @@ static const socket_t invalid_socket_v = -1;
 inline int socket_close(socket_t s) { return close(s); }
 inline bool socket_valid(socket_t s) { return s >= 0; }
 #endif
-
-#ifdef _WIN32
-int inet_pton(int af, const char* src, void* dst) {
-    struct sockaddr_storage ss{};
-    int ss_len = sizeof(ss);
-    return WSAStringToAddressA(const_cast<char*>(src), af, nullptr, (sockaddr*)&ss, &ss_len) == 0
-           ? 1
-           : 0;
-}
-#endif
